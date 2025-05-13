@@ -1,12 +1,16 @@
-from fastapi import FastAPI, Request
+from fastapi import FastAPI
+from pydantic import BaseModel
 import requests
+
+# Modelo para entrada do JSON
+class ClienteRequest(BaseModel):
+    cpf_cnpj: str
 
 app = FastAPI()
 
 @app.post("/consultar_cliente")
-async def consultar_cliente(request: Request):
-    dados = await request.json()
-    cpf_cnpj = dados.get("cpf_cnpj")
+async def consultar_cliente(dados: ClienteRequest):
+    cpf_cnpj = dados.cpf_cnpj
 
     url = "https://citrn.sgp.net.br/api/ura/consultacliente/"
     headers = {
