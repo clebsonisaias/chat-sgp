@@ -15,6 +15,7 @@ async def consultar_cliente(dados: ClienteRequest):
     url = "https://citrn.sgp.net.br/api/ura/consultacliente/"
     headers = {
         "Authorization": "Bearer 949c987c-a80b-4182-a833-e6ac3818ed30",
+        "app_id": "alexa2",
         "Content-Type": "application/json"
     }
     payload = {
@@ -23,3 +24,4 @@ async def consultar_cliente(dados: ClienteRequest):
 
     resposta = requests.post(url, json=payload, headers=headers)
     return resposta.json()
+
