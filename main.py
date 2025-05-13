@@ -13,15 +13,14 @@ async def consultar_cliente(dados: ClienteRequest):
     cpf_cnpj = dados.cpf_cnpj
 
     url = "https://citrn.sgp.net.br/api/ura/consultacliente/"
-    headers = {
-        "Authorization": "Bearer 949c987c-a80b-4182-a833-e6ac3818ed30",
-        "app_id": "alexa2",
-        "Content-Type": "application/json"
-    }
     payload = {
-        "cpfcnpj": cpf_cnpj
+        "cpfcnpj": cpf_cnpj,
+        "token": "97c3f6d7-b9b9-4ca0-8231-ac2...COLA_SEU_TOKEN_AQUI",
+        "app": "gpt"
+    }
+    headers = {
+        "Content-Type": "application/json"
     }
 
     resposta = requests.post(url, json=payload, headers=headers)
     return resposta.json()
-
