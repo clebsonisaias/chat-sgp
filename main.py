@@ -15,7 +15,7 @@ async def consultar_cliente(dados: ClienteRequest):
     url = "https://citrn.sgp.net.br/api/ura/consultacliente/"
     payload = {
         "cpfcnpj": cpf_cnpj,
-        "token": "97c3f6d7-b9b9-4ca0-8231-ac2...COLA_SEU_TOKEN_AQUI",
+        "token": "97c3f6d7-b9b9-4ca0-8231-ac2c68e1323b",
         "app": "gpt"
     }
     headers = {
